@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
-import java.nio.Buffer;
 import java.util.Scanner;
 
 public class Archivo {
@@ -76,6 +75,100 @@ public class Archivo {
             System.out.println("Error al verificar el archivo...");
         }
     }
+    public void llenarArchivo(){
+          try {
+            // Cantidad de palanras a ingresar
+            int cantWords = 0;
+            while (cantWords <= 0) {
+                System.out.println("Cuantas palabras quieres ingresar??: ");
+                try {
+                    cantWords = nrg.nextInt();
+                } catch (NumberFormatException e) {
+                    cantWords = 0;
+                }
+                if (cantWords <= 0) {
+                    System.out.println("Ingresa un numero mayor que 0");
+                }
+            }
+
+            // Contar las palabras ya existentes
+            int cont = 0;
+            String linea;
+            if (archivo.exists()) {
+                BufferedReader br = new BufferedReader(new FileReader(archivo));
+                while ((linea = br.readLine()) != null) {
+                    linea = linea.trim();
+                    if (linea.startsWith(spanish + ": ") || linea.startsWith(inglish + ": ")) {
+                        cont++;
+                    }
+                }
+                br.close();
+            }
+
+            // Vector para las palabras existentes y las nuevas
+            String[] all = new String[cont + cantWords];
+            int n = 0;
+            if (archivo.exists()) {
+                BufferedReader br = new BufferedReader(new FileReader(archivo));
+                while ((linea = br.readLine()) != null) {
+                    linea = linea.trim();
+                    if (linea.startsWith(spanish + ": ") || linea.startsWith(inglish + ": ")) {
+                        all[n++] = linea;
+                    }
+                }
+                br.close();
+            }
+
+            // Palabra e idioma de la palanrsa
+            for (int i = 1; i <= cantWords; i++) {
+                String idioma = "";
+                while (idioma.equals("")) {
+                    System.out.println("Dime la palabra numero: " + i + " y en que idioma la quieres ingresar");
+                    System.out.println("1. Español");
+                    System.out.println("2. Ingles");
+                    String op = nrg.nextLine().trim();
+
+                    switch (op) {
+                        case "1":
+                            idioma = spanish;
+                            break;
+                        case "2":
+                            idioma = inglish;
+                            break;
+                        default:
+                            System.out.println("Opsion incorrecta...");
+                            break;
+                    }
+                }
+                String palabra = "";
+                while (palabra.equals("")) {
+                    if (idioma.equals(spanish)) {
+                        System.out.println("Dime la palabra en español: ");
+                    } else {
+                        System.out.println("Dime la palabra en ingles: ");
+                    }
+                    String word = nrg.nextLine().trim().toUpperCase();
+                    if (word.matches("[A-ZÑ]+")) {
+                        palabra = word;
+                    } else {
+                        System.out.println("Solo ingresa letras de la (A-Z)");
+                    }
+                }
+                all[n++] = idioma + ": " + palabra;
+            }
+            //
+            // Ordenar con shell y guardar en archivo
+            shellSort(all);
+            PrintWriter pw = new PrintWriter(archivo);
+            for (int i = 0; i < all.length; i++) {
+                pw.println(all[i]);
+            }
+            pw.close();
+            System.out.println("Palabras guardas en el archuvo: " + all.length);
+        } catch (Exception e) {
+            System.out.println("Error al llenar el archivo.....");
+        }
+    }
 
     public void borrarArchivo(){
         if (archivo.exists()) {
@@ -99,6 +192,39 @@ public class Archivo {
         }else{
             System.out.println("No hay un archivo existente");
         }
+    }
+    public String[] cargarPalabras(String idioma){
+        String prefinco = idioma + ": ";
+        String[] palabras = new String[0];
+
+        try {
+            if (archivo.exists()) {
+                int cont = 0;
+                String linea;
+                BufferedReader br = new BufferedReader(new FileReader(archivo));
+                String lectLinea = (linea = br.readLine());
+                while (lectLinea != null) {
+                    if ((linea.trim().startsWith(prefinco))) {
+                        cont++;
+                    }
+                }
+                br.close();
+
+                palabras=new String[cont];
+                int k=0;
+                br=new BufferedReader(new FileReader(archivo));
+                while ((linea=br.readLine()) != null) {
+                    linea=linea.trim();
+                    if (linea.startsWith(prefinco)) {
+                        palabras[k++]=linea.substring(prefinco.length());
+                    }
+                }
+                br.close();
+            }
+        } catch (Exception e) {
+            System.out.println("Error al leer el archivo....");
+        }
+        return palabras;
     }
 
 
