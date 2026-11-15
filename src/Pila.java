@@ -20,9 +20,40 @@ public class Pila {
     //3. Eliminar
     public void eliminar(){
         if (!pilaVacia()) {
-            
+            datos[cima]='\0';
+            cima--;
         }
     }
+    //4.Mostrar cima
+    public char mostrarCima(){
+        if (!pilaVacia()) {
+            return datos[cima];
+        }
+        return '\0';
+    }
+    //5. Cantidad de elementos
+    public int elementosExistentes(){
+        return cima+1;
+    }
+
+    public boolean verificarLetraIngresadaNorepetitiva(char letra){
+        for (int i = 0; i <= cima; i++) {
+            if (datos[i]==letra) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public char[] obtenerLetrasAlmaceadas_Prime(){
+        char[] letras= new char[cima +1];
+
+        for (int i = 0; i <= cima; i++) {
+            letras[i]=datos[i];
+        }
+        return letras;
+    }
+
 
     //Metodo auxiliar
     private boolean pilaLlena(){
