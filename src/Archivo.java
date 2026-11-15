@@ -1,7 +1,17 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.nio.Buffer;
 import java.util.Scanner;
 
 public class Archivo {
     Scanner nrg=new Scanner(System.in);
+    File archivo=new File("./Archivo/Words.txt");
+
+    public static String spanish="Es";
+    public static String inglish="En";
+
     public void menu() {
 
         String op = "";
@@ -37,7 +47,59 @@ public class Archivo {
             }
         }
     }
+    public void verificarArchivo(){
+        try {
+            if (archivo.exists()) {
+                int cantEs=0;
+                int cantEn=0;
+                BufferedReader br=new BufferedReader(new FileReader(archivo));
+                String linea;
 
+                while ((linea=br.readLine()) !=null) {
+                    linea=linea.trim();
+                    if (linea.startsWith(spanish +": ")) {
+                        cantEs++;
+                    } else if (linea.startsWith(inglish +": ")) {
+                        cantEn++;
+                    }
+                }
+                br.close();
+
+                System.out.println("Verificacion exitosa...");
+                System.out.println("Plabras en español: "+cantEs);
+                System.out.println("Palabras en ingles: "+cantEn);
+            }else{
+                archivo.createNewFile();
+                System.out.println("El archivo no existe");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al verificar el archivo...");
+        }
+    }
+
+    public void borrarArchivo(){
+        if (archivo.exists()) {
+            System.out.println("Seguro que quieres eliminar el archivo??");
+            String res=nrg.next();
+
+            if (res.equalsIgnoreCase("Si")) {
+                PrintWriter pw=null;
+                try {
+                    pw=new PrintWriter(archivo);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                if (pw != null) {
+                    pw.close();
+                }
+                System.out.println("Archivo Borrado");
+            }else{
+                System.out.println("Accion cancelada");
+            }
+        }else{
+            System.out.println("No hay un archivo existente");
+        }
+    }
 
 
     //Metodo AUXILIAR -----------------
