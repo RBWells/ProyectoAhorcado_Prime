@@ -15,4 +15,17 @@ public class JuegoAhorcado {
     }
 
 
+
+
+
+
+
+
+
+
+
+    public String obtenerPalabraAdivinada(String palabraAdivinada, char[] letrasIngresadas){
+        return null;
+    }
+
 }
