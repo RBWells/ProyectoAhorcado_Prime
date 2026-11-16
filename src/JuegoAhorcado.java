@@ -28,4 +28,21 @@ public class JuegoAhorcado {
         return null;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public String obtenerLetrasDisponibles(){
+        return null;
+    }
+
 }
