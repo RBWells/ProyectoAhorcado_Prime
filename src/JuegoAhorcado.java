@@ -4,4 +4,15 @@ public class JuegoAhorcado {
         return null;
     }
 
+
+
+
+
+
+
+    public boolean seAdivinoLaPalabra(String palabraSecreta, char[] letrasIngresadas){
+        return false;
+    }
+
+
 }
