@@ -9,5 +9,4 @@ public class Oportunidades {
             intentos--;
         }
     }
-    public boolean sinIntentos(){return intentos ==0;}
 }
