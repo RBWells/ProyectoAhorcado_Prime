@@ -18,7 +18,21 @@ public class JuegoAhorcado {
 
 
     public boolean seAdivinoLaPalabra(String palabraSecreta, char[] letrasIngresadas){
-        return false;
+        for (int i = 0; i < palabraSecreta.length(); i++) {
+            char c=Character.toLowerCase(palabraSecreta.charAt(i));
+
+            boolean find=false;
+            for (int j = 0; j < letrasIngresadas.length; j++) {
+                if (c==letrasIngresadas[j]) {
+                    find=true;
+                    break;
+                }
+            }
+            if (!find) {
+                return false;
+            }
+        }
+        return true;
     }
 
 
