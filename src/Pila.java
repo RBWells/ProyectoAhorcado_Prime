@@ -10,7 +10,7 @@ public class Pila {
 
     //2. Insertar
     public void insertar(char dato){
-        if (!pilaLlena()) {
+        if (cima <datos.length -1) {
             cima++;
             datos[cima]=dato;
         }else{
@@ -19,14 +19,14 @@ public class Pila {
     }
     //3. Eliminar
     public void eliminar(){
-        if (!pilaVacia()) {
+        if (cima >=0) {
             datos[cima]='\0';
             cima--;
         }
     }
     //4.Mostrar cima
     public char mostrarCima(){
-        if (!pilaVacia()) {
+        if (cima >=0) {
             return datos[cima];
         }
         return '\0';
@@ -34,6 +34,14 @@ public class Pila {
     //5. Cantidad de elementos
     public int elementosExistentes(){
         return cima+1;
+    }
+    //6. Vaciar Pila
+    public void vaciar(){
+        if (cima > -1) {
+            cima=-1;
+        }else{
+            System.out.println("La pila esta vacia, no puedes eliminar lo que no ha existido");
+        }
     }
 
     public boolean verificarLetraIngresadaNorepetitiva(char letra){
@@ -53,19 +61,4 @@ public class Pila {
         }
         return letras;
     }
-
-
-    //Metodo auxiliar
-    private boolean pilaLlena(){
-        return cima==datos.length -1;
-    }
-    //Metodo auxiliar: Verificar vacia
-    private boolean pilaVacia(){
-        return cima==-1;
-    }
-
-
-
-
-
 }
