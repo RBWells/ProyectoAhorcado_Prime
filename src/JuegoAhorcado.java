@@ -6,9 +6,9 @@ public class JuegoAhorcado {
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ñ' };
     Scanner nrg=new Scanner(System.in);
     Random thegrefg=new Random();
-    
-    public String elegirPalabra(String palabras){
-        return null;
+
+    public String elegirPalabra(String[] palabras){
+        return palabras[thegrefg.nextInt(palabras.length)];
     }
 
 
