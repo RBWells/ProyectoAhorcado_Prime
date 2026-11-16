@@ -26,13 +26,13 @@ public class Archivo {
 
             switch (op) {
                 case "1":
-
+                    verificarArchivo();
                     break;
                 case "2":
-
+                    llenarArchivo();
                     break;
                 case "3":
-
+                    borrarArchivo();
                 case "4":
 
                     break;
@@ -45,6 +45,23 @@ public class Archivo {
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void verificarArchivo() {
         try {
@@ -75,6 +92,23 @@ public class Archivo {
             System.out.println("Error al verificar el archivo...");
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public void llenarArchivo() {
         try {
@@ -200,7 +234,7 @@ public class Archivo {
 
 
 
-    
+
 
 
     public void borrarArchivo() {
@@ -226,6 +260,15 @@ public class Archivo {
             System.out.println("No hay un archivo existente");
         }
     }
+
+
+
+
+
+
+
+
+
 
     public String[] cargarPalabras() {
         String[] palabras = new String[0];
@@ -259,6 +302,18 @@ public class Archivo {
         }
         return palabras;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Metodo/ Algoritmo de Ordenamiento-----------------
     public void shellSort(String[] words) {
