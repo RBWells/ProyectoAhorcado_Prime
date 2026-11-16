@@ -45,6 +45,20 @@ public class Archivo {
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void verificarArchivo(){
         try {
             if (archivo.exists()) {
@@ -74,13 +88,33 @@ public class Archivo {
             System.out.println("Error al verificar el archivo...");
         }
     }
+
+
+
+
+
+
+
+
+
     public void llenarArchivo(){
         
     }
 
+
+
+
+
+
+
+
+
+
+
+
     public void borrarArchivo(){
         if (archivo.exists()) {
-            System.out.println("Seguro que quieres eliminar el archivo??");
+            System.out.println("Seguro que quieres eliminar el archivo (Si/no)??");
             String res=nrg.next();
 
             if (res.equalsIgnoreCase("Si")) {
@@ -101,8 +135,21 @@ public class Archivo {
             System.out.println("No hay un archivo existente");
         }
     }
-    public String[] cargarPalabras(String idioma){
-        String prefinco = idioma + ": ";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public String[] cargarPalabras(){
         String[] palabras = new String[0];
 
         try {
@@ -110,9 +157,9 @@ public class Archivo {
                 int cont = 0;
                 String linea;
                 BufferedReader br = new BufferedReader(new FileReader(archivo));
-                String lectLinea = (linea = br.readLine());
-                while (lectLinea != null) {
-                    if ((linea.trim().startsWith(prefinco))) {
+                while ((linea=br.readLine()) != null) {
+                    linea=linea.trim();
+                    if (linea.startsWith(spanish+": ")|| linea.startsWith(inglish+": ")) {
                         cont++;
                     }
                 }
@@ -123,8 +170,8 @@ public class Archivo {
                 br=new BufferedReader(new FileReader(archivo));
                 while ((linea=br.readLine()) != null) {
                     linea=linea.trim();
-                    if (linea.startsWith(prefinco)) {
-                        palabras[k++]=linea.substring(prefinco.length());
+                    if (linea.startsWith(spanish+": ")|| linea.startsWith(inglish+": ")) {
+                        palabras[k++]=linea;
                     }
                 }
                 br.close();
@@ -136,18 +183,18 @@ public class Archivo {
     }
 
 
-    //Metodo AUXILIAR -----------------
-    public void shellSort(String[] vector){
-        int saltos= vector.length/2;
+    //Metodo/ Algoritmo de Ordenamiento-----------------
+    public void shellSort(String[] words){
+        int saltos= words.length/2;
         while (saltos > 0) {
-            for (int i = saltos; i < vector.length; i++) {
-                String aux=vector[i];
+            for (int i = saltos; i < words.length; i++) {
+                String aux=words[i];
                 int j=i;
-                while (j>saltos && vector[j-saltos].compareTo(aux) >0) {
-                    vector[j]=vector[j-saltos];
+                while (j>saltos && words[j-saltos].substring(4).compareTo(aux.substring(4)) >0) {
+                    words[j]=words[j-saltos];
                     j-=saltos;
                 }
-                vector[j]=aux;
+                words[j]=aux;
             }
             saltos=saltos/2;
         }
