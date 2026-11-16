@@ -12,7 +12,6 @@ public class Archivo {
     public static String inglish="En";
 
     public void menu() {
-
         String op = "";
 
         while (!op.equals("0")) {
@@ -69,7 +68,7 @@ public class Archivo {
                 System.out.println("Palabras en ingles: "+cantEn);
             }else{
                 archivo.createNewFile();
-                System.out.println("El archivo no existe");
+                System.out.println("El archivo no existe...");
             }
         } catch (Exception e) {
             System.out.println("Error al verificar el archivo...");
