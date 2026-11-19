@@ -16,6 +16,9 @@ public class JuegoAhorcado {
 
 
 
+    
+
+
 
     public boolean seAdivinoLaPalabra(String palabraSecreta, char[] letrasIngresadas){
         for (int i = 0; i < palabraSecreta.length(); i++) {

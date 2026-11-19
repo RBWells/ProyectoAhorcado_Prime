@@ -144,7 +144,7 @@ public class Archivo {
                 br.close();
             }
 
-            // Nuevo arrehlo para las palabras yta existentes
+            // Nuevo arreglo para las palabras yta existentes
             String[] wordsAll = new String[contWords + cantWords];
             int n = 0;
 
@@ -178,7 +178,7 @@ public class Archivo {
                             String wordEs="";
 
                             while (wordEs.equals("")) {
-                                System.out.println("Dime la plabra en espalok");
+                                System.out.println("Dime la plabra en español");
                                 String word=nrg.nextLine().trim().toUpperCase();
 
                                 if (word.matches("[A-ZÑ]+")) {
@@ -208,7 +208,7 @@ public class Archivo {
                             save=true;
                             break;
                         default:
-                            System.out.println("Esa opsion no esta en el menu");
+                            System.out.println("Esa opcion no esta en el menu");
                             break;
                     }
                 }
