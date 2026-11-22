@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Archivo {
     Scanner nrg = new Scanner(System.in);
-    File archivo = new File("./Proyect_Prime/Archivo/Words.txt");
+    File archivo = new File("./Archivo/Words.txt");
 
     public static String spanish = "Es";
     public static String inglish = "En";
