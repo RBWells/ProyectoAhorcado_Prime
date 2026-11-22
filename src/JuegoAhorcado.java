@@ -148,14 +148,59 @@ public class JuegoAhorcado {
                 System.out.println("Ingresa SOLO UNA LETRAS");
                 continue;
             }
-            char=letra=letraUsu.charAt(0);
+            char letra=letraUsu.charAt(0);
 
             //Validacion para que sea del alphabeti
-            if (condition) {
-                
+            if (binarySearch(alphabeto, letra)==-1) {
+                System.out.println("Eso no es una letra, Ingresa una que si lo sea");
+                continue;
             }
+
+            //Buscar letra en las que quedan
+            int pos=binarySearch(alphabetoCopy, letra);
+
+            if (pos==-1) {
+                System.out.println("Ya ingresaste esa letra, Prueva con una diferentes");
+                continue;
+            }
+            
+
+
+            //Elimina letra del alphabeto
+            char[] newLetras=new char[alphabetoCopy.length -1];
+            for (int i = 0, j=0; i < alphabetoCopy.length; i++) {
+                if (i!=pos) {
+                    newLetras[j]=alphabetoCopy[j];
+                    j++;
+                }
+            }
+            alphabetoCopy=newLetras;
+            
+            //Guardar letra en la pila
+            letrasIngresadas.insertar(letra);
+
+            
+
+
+            //Comprobar la existencia de la palabra
+            if (wordSecret.indexOf(Character.toUpperCase(letra)) != -1) {
+                System.out.println("Exelente, esa letra si estaba en la palabra: "+obtenerPalabraAdivinada(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas()));
+                trys.descontarIntentos();
+            }else{
+                System.out.println("Esa letra no estaba en la palabra secreta: "+obtenerPalabraAdivinada(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas()));
+                trys.descontarIntentos();
+            }
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------");
         }
 
+        //Comprobar si gano o perdio
+        if (seAdivinoLaPalabra(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas())) {
+            System.out.println("\nGanaste, BRAVOOO!!");
+            System.out.println("La palabra hera: "+wordSecret);
+        } else{
+            System.out.println("\n You loss, Te quedate sin Oportunidades....");
+            System.out.println("La palabra secreta hera: "+wordSecret);
+        }
     }
 
 
