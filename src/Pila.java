@@ -53,7 +53,7 @@ public class Pila {
         return false;
     }
 
-    public char[] obtenerLetrasAlmaceadas_Prime(){
+    public char[] obtenerLetrasAlmaceadasPrime(){
         char[] letras= new char[cima +1];
 
         for (int i = 0; i <= cima; i++) {

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 import java.util.Random;
 
 public class JuegoAhorcado {
@@ -123,9 +124,18 @@ public class JuegoAhorcado {
         if (wordSecret.startsWith("Es: ") || wordSecret.startsWith("En: ")) {
             wordSecret=wordSecret.toUpperCase().substring(4);
         }
-        
         Oportunidades trys =new Oportunidades();
         Pila letrasIngresadas=new Pila(27);
+
+        //Copia del alphabeto para no perder el original
+        char[] alphabetoCopy= Arrays.copyOf(alphabeto, alphabeto.length);
+
+        System.out.println("=== INICIO DEL JUEGO ===");
+        System.out.println("La palabra contiene: "+wordSecret.length() +"Letras ");
+
+        while (trys.getIntentos() > 0 && !seAdivinoLaPalabra(wordSecret, letrasIngresadas)) {
+            
+        }
 
     }
 
