@@ -339,7 +339,7 @@ public class Archivo {
             for (int i = saltos; i < words.length; i++) {
                 String aux = words[i];
                 int j = i;
-                while (j > saltos && words[j - saltos].substring(4).compareTo(aux.substring(4)) > 0) {
+                while (j >= saltos && words[j - saltos].substring(4).compareTo(aux.substring(4)) > 0) {
                     words[j] = words[j - saltos];
                     j -= saltos;
                 }
