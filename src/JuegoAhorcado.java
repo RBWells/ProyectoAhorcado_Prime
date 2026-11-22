@@ -23,12 +23,12 @@ public class JuegoAhorcado {
 
     public boolean seAdivinoLaPalabra(String palabraSecreta, char[] letrasIngresadas){
         for (int i = 0; i < palabraSecreta.length(); i++) {
-            char c=Character.toLowerCase(palabraSecreta.charAt(i));
+            char letra = Character.toLowerCase(palabraSecreta.charAt(i));
 
-            boolean find=false;
+            boolean find = false;
             for (int j = 0; j < letrasIngresadas.length; j++) {
-                if (c==letrasIngresadas[j]) {
-                    find=true;
+                if (letra == letrasIngresadas[j]) {
+                    find = true;
                     break;
                 }
             }
@@ -49,23 +49,23 @@ public class JuegoAhorcado {
 
 
 
-    public String obtenerPalabraAdivinada(String palabraAdivinada, char[] letrasIngresadas){
-        String palabra="";
+    public String obtenerPalabraAdivinada(String palabraSecreta, char[] letrasIngresadas){
+        String palabra = "";
 
-        for (int i = 0; i < palabraAdivinada.length(); i++) {
-            char c=palabraAdivinada.charAt(i);
+        for (int i = 0; i < palabraSecreta.length(); i++) {
+            char letra = palabraSecreta.charAt(i);
 
-            boolean find=false;
+            boolean find = false;
             for (int j = 0; j < letrasIngresadas.length; j++) {
-                if (Character.toLowerCase(c)==letrasIngresadas[j]) {
-                    find=true;
+                if (Character.toLowerCase(letra) == letrasIngresadas[j]) {
+                    find = true;
                     break;
                 }
             }
             if (find) {
-                palabra+=c+" ";
-            }else{
-                palabra+="_ ";
+                palabra += letra + " ";
+            } else {
+                palabra += "_ ";
             }
         }
         return palabra;
@@ -97,7 +97,7 @@ public class JuegoAhorcado {
                 }
             }
             if (find) {
-                letrasDis+="_ ";
+                letrasDis+=" _ ";
             } else{
                 letrasDis+=alphabeto[i]+" ";
             }
@@ -170,7 +170,7 @@ public class JuegoAhorcado {
             char[] newLetras=new char[alphabetoCopy.length -1];
             for (int i = 0, j=0; i < alphabetoCopy.length; i++) {
                 if (i!=pos) {
-                    newLetras[j]=alphabetoCopy[j];
+                    newLetras[j]=alphabetoCopy[i];
                     j++;
                 }
             }
@@ -185,7 +185,6 @@ public class JuegoAhorcado {
             //Comprobar la existencia de la palabra
             if (wordSecret.indexOf(Character.toUpperCase(letra)) != -1) {
                 System.out.println("Exelente, esa letra si estaba en la palabra: "+obtenerPalabraAdivinada(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas()));
-                trys.descontarIntentos();
             }else{
                 System.out.println("Esa letra no estaba en la palabra secreta: "+obtenerPalabraAdivinada(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas()));
                 trys.descontarIntentos();

@@ -183,7 +183,7 @@ public class Archivo {
                     System.out.println("Dime la palabra numero "+i+ " Y en que idioma la quieres ingresar: ");
                     System.out.println("1. Español");
                     System.out.println("2. Ingles");
-                    String ops=nrg.next();
+                    String ops=nrg.nextLine().trim();
 
                     switch (ops) {
                         case "1":
@@ -251,8 +251,8 @@ public class Archivo {
 
     public void borrarArchivo() {
         if (archivo.exists()) {
-            System.out.println("Seguro que quieres eliminar el archivo (Si/no)??");
-            String res = nrg.next();
+            System.out.println("Deseas eliminar Archivo realmente?? (Si/No)");
+            String res = nrg.nextLine().trim();
 
             if (res.equalsIgnoreCase("Si")) {
                 PrintWriter pw = null;
@@ -269,7 +269,7 @@ public class Archivo {
                 System.out.println("Accion cancelada");
             }
         } else {
-            System.out.println("No hay un archivo existente");
+            System.out.println("No hay un archivo existente...");
         }
     }
 
