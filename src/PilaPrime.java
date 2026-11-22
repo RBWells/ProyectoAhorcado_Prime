@@ -37,11 +37,7 @@ public class PilaPrime {
     }
     //6. Vaciar Pila
     public void vaciar(){
-        if (cima > -1) {
-            cima=-1;
-        }else{
-            System.out.println("La pila esta vacia, no puedes eliminar lo que no ha existido");
-        }
+        cima=-1;
     }
 
     public boolean verificarLetraIngresadaNorepetitiva(char letra){

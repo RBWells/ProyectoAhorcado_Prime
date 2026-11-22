@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Archivo {
@@ -131,8 +132,9 @@ public class Archivo {
                 System.out.println("Cuantas palabras quieres ingresar al archivo??");
                 try {
                     cantWords = nrg.nextInt();
-                } catch (NumberFormatException e) {
+                } catch (InputMismatchException e) {
                     System.out.println("Ingresa un numero valido ");
+                    nrg.nextLine();
                     cantWords = 0;
                 }
                 if (cantWords <= 0) {
@@ -153,6 +155,7 @@ public class Archivo {
                     if (linea.startsWith(spanish + ": ") || linea.startsWith(inglish + ": ")) {
                         contWords++;
                     }
+                    linea=br.readLine();
                 }
                 br.close();
             }
@@ -169,6 +172,7 @@ public class Archivo {
                     if (linea.startsWith(spanish + ": ") || linea.startsWith(inglish + ": ")) {
                         wordsAll[n++] = linea;
                     }
+                    linea=br.readLine();
                 }
                 br.close();
             }

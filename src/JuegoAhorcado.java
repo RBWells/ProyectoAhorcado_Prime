@@ -102,7 +102,7 @@ public class JuegoAhorcado {
                 letrasDis+=alphabeto[i]+" ";
             }
         }
-        return letrasDis;
+        return letrasDis.toUpperCase();
     }
 
 
