@@ -34,7 +34,19 @@ public class Archivo {
                 case "3":
                     borrarArchivo();
                 case "4":
+                    JuegoAhorcado game=new JuegoAhorcado();
+                    String[] palabras=cargarPalabras();
 
+                    //Verificacion de archivo vacio
+                    if (palabras.length ==0) {
+                        System.out.println("El arahcivo esta vacio.. Llenalo primero");
+                        break;
+                    }
+                    
+                    System.out.println("Cargando lista de palabras desde Archivo.... ");
+                    System.out.println("+ "+palabras.length +" Palabras Cargadas");
+                    String palabra=game.elegirPalabra(palabras);
+                    game.inicioAhorcado(palabra);
                     break;
                 case "0":
                     System.out.println("Saliste del menu...");
