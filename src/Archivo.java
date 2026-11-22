@@ -22,7 +22,7 @@ public class Archivo {
             System.out.println("4. Jugar");
             System.out.println("---------------------------------");
             System.out.println("0. Salir...");
-            op = nrg.next();
+            op = nrg.nextLine().trim();
 
             switch (op) {
                 case "1":
@@ -33,6 +33,7 @@ public class Archivo {
                     break;
                 case "3":
                     borrarArchivo();
+                    break;
                 case "4":
                     JuegoAhorcado game=new JuegoAhorcado();
                     String[] palabras=cargarPalabras();
