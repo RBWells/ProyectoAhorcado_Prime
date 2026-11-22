@@ -84,7 +84,24 @@ public class JuegoAhorcado {
 
 
     public String obtenerLetrasDisponibles(char[] letrasIngresadas){
-        return null;
+        String letrasDis="";
+
+        for (int i = 0; i < alphabeto.length; i++) {
+            boolean find=false;
+
+            for (int j = 0; j < letrasIngresadas.length; j++) {
+                if (alphabeto[i] == letrasIngresadas[j]) {
+                    find=true;
+                    break;
+                }
+            }
+            if (find) {
+                letrasDis+="_ ";
+            } else{
+                letrasDis+=alphabeto[i]+" ";
+            }
+        }
+        return letrasDis;
     }
 
 
