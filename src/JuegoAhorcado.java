@@ -53,11 +53,11 @@ public class JuegoAhorcado {
         String palabra="";
 
         for (int i = 0; i < palabraAdivinada.length(); i++) {
-            char c=palabraAdivinada.toLowerCase().charAt(i);
+            char c=palabraAdivinada.charAt(i);
 
             boolean find=false;
             for (int j = 0; j < letrasIngresadas.length; j++) {
-                if (c==letrasIngresadas[j]) {
+                if (Character.toLowerCase(c)==letrasIngresadas[j]) {
                     find=true;
                     break;
                 }
@@ -122,8 +122,9 @@ public class JuegoAhorcado {
         String wordSecret=palabraElejida;
 
         if (wordSecret.startsWith("Es: ") || wordSecret.startsWith("En: ")) {
-            wordSecret=wordSecret.toUpperCase().substring(4);
+            wordSecret=wordSecret.substring(4);
         }
+        wordSecret=wordSecret.toUpperCase();
         Oportunidades trys =new Oportunidades();
         Pila letrasIngresadas=new Pila(27);
 

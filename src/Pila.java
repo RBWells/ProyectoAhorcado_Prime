@@ -51,13 +51,12 @@ public class Pila {
             }
         }
         return false;
-    }
-
-    public char[] obtenerLetrasAlmaceadasPrime(){
-        char[] letras= new char[cima +1];
+    } 
+    public char[] obtenerLetrasAlmacenadas() {
+        char[] letras = new char[cima + 1];
 
         for (int i = 0; i <= cima; i++) {
-            letras[i]=datos[i];
+            letras[i] = datos[i];
         }
         return letras;
     }
