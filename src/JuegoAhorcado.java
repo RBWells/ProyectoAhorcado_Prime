@@ -49,7 +49,25 @@ public class JuegoAhorcado {
 
 
     public String obtenerPalabraAdivinada(String palabraAdivinada, char[] letrasIngresadas){
-        return null;
+        String palabra="";
+
+        for (int i = 0; i < palabraAdivinada.length(); i++) {
+            char c=palabraAdivinada.toLowerCase().charAt(i);
+
+            boolean find=false;
+            for (int j = 0; j < letrasIngresadas.length; j++) {
+                if (c==letrasIngresadas[j]) {
+                    find=true;
+                    break;
+                }
+            }
+            if (find) {
+                palabra+=c+" ";
+            }else{
+                palabra+="_ ";
+            }
+        }
+        return palabra;
     }
 
 
