@@ -1,9 +1,9 @@
-public class Pila {
+public class PilaPrime {
     private char[] datos;
     private int cima;
 
     //Crear pila
-    public Pila(int tam){
+    public PilaPrime(int tam){
         datos=new char[tam];
         cima=-1;
     }

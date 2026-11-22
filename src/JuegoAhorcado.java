@@ -126,7 +126,7 @@ public class JuegoAhorcado {
         }
         wordSecret=wordSecret.toUpperCase();
         Oportunidades trys =new Oportunidades();
-        Pila letrasIngresadas=new Pila(27);
+        PilaPrime letrasIngresadas=new PilaPrime(27);
 
         //Copia del alphabeto para no perder el original
         char[] alphabetoCopy= Arrays.copyOf(alphabeto, alphabeto.length);
