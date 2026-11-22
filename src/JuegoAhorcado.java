@@ -118,8 +118,28 @@ public class JuegoAhorcado {
 
 
     public void inicioAhorcado(String palabraElejida){
+        String wordSecret=palabraElejida;
+
+        if (wordSecret.startsWith("Es: ") || wordSecret.startsWith("En: ")) {
+            wordSecret=wordSecret.toUpperCase().substring(4);
+        }
         
+        Oportunidades trys =new Oportunidades();
+        Pila letrasIngresadas=new Pila(27);
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
