@@ -83,7 +83,7 @@ public class JuegoAhorcado {
 
 
 
-    public String obtenerLetrasDisponibles(){
+    public String obtenerLetrasDisponibles(char[] letrasIngresadas){
         return null;
     }
 
