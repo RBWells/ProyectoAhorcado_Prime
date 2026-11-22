@@ -134,7 +134,7 @@ public class JuegoAhorcado {
         System.out.println("=== INICIO DEL JUEGO ===");
         System.out.println("La palabra contiene: "+wordSecret.length() +"Letras ");
 
-        while (trys.getIntentos() > 0 && !seAdivinoLaPalabra(wordSecret, letrasIngresadas)) {
+        while (trys.getIntentos() > 0 && !seAdivinoLaPalabra(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas())) {
             
         }
 
