@@ -135,7 +135,25 @@ public class JuegoAhorcado {
         System.out.println("La palabra contiene: "+wordSecret.length() +"Letras ");
 
         while (trys.getIntentos() > 0 && !seAdivinoLaPalabra(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas())) {
+            System.out.println("Te quedan: "+trys.getIntentos()+ " Oportunidades para adivinar la palarbra");
+            System.out.println("Letras Disponibles: "+obtenerLetrasDisponibles(letrasIngresadas.obtenerLetrasAlmacenadas()));
+            System.out.println("Palabra: "+obtenerPalabraAdivinada(wordSecret, letrasIngresadas.obtenerLetrasAlmacenadas()));
             
+
+            System.out.println("\nDime una letra del Alphabeto: ");
+            String letraUsu=nrg.nextLine().trim().toLowerCase();
+
+            //Validacion para que solo sea una letra
+            if (letraUsu.length() !=1) {
+                System.out.println("Ingresa SOLO UNA LETRAS");
+                continue;
+            }
+            char=letra=letraUsu.charAt(0);
+
+            //Validacion para que sea del alphabeti
+            if (condition) {
+                
+            }
         }
 
     }
@@ -152,6 +170,31 @@ public class JuegoAhorcado {
 
 
 
+
+
+
+
+
+
+
+    public int binarySearch(char[] arreglo, char letra){
+        int inicio=0;
+        int tfin=arreglo.length -1;
+        
+        while (inicio <= tfin) {
+            int middle=(inicio+ tfin)/2;
+
+            if (arreglo[middle]== letra) {
+                return middle;
+            }
+            else if (arreglo[middle] > letra) {
+                tfin=middle-1;
+            }else{
+                inicio=middle+1;
+            }
+        }
+        return -1;
+    }
 
 
 
